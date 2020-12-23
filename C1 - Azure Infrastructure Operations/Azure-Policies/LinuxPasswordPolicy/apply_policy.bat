@@ -1,0 +1,1 @@
+az policy assignment create --policy LinuxPasswordPolicy --name 'audit-existing-linux-vm-ssh-with-password-assignment' --display-name "Audit existing Linux VMs that use password for SSH authentication Assignment"
