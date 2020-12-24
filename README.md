@@ -36,12 +36,13 @@
 #### 4. How to change predefined template variables:
 <p>vars.tf file contains all the variables used in the template including the ones such as tag_env, tag_task, and location. These variable can be altered via changing the default values in vars.tf file.</p>
 ### Output
-><pre><code> terraform apply solution.plan <code></pre> 
+
+> <pre><code> terraform apply solution.plan </code></pre> 
 ![Apply solution plan](https://github.com/sonercand/azure-deployment/blob/project1/terraform_apply.PNG "Apply Solution.plan")
-><pre><code> terraform state list   <code></pre> 
-![Statelist](https://github.com/sonercand/azure-deployment/blob/project1/terraform_state_list.PNG")
-><pre><code> terraform destroy    <code></pre> 
-![Statelist](https://github.com/sonercand/azure-deployment/blob/project1/terraform_destroy.PNG")
+><pre><code> terraform state list   </code></pre> 
+![Statelist](https://github.com/sonercand/azure-deployment/blob/project1/terraform_state_list.PNG "Statelist")
+><pre><code> terraform destroy    </code></pre> 
+![Destroy](https://github.com/sonercand/azure-deployment/blob/project1/terraform_destroy.PNG "Destroy")
 
 ### Dependencies
 #### 1. Create an [Azure Account](https://portal.azure.com) 
