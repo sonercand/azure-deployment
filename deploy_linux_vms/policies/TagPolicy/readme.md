@@ -1,0 +1,1 @@
+### When applied denies any resource creation if there is not any tag present. 
