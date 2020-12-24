@@ -34,10 +34,12 @@
 > ##### password: for virtual machine.
 > ##### prefix: Prefix for main resource names that will be created via this template.
 #### 4. How to change predefined template variables:
-<p>vars.tf file contains all the variables used in the template including the ones such as tag_env, tag_task, and location. These variable can be altered via changing the default values in vars.tf file.</p>
+<p>vars.tf file contains all the variables used in the template including the ones such as tag_env, tag_task, and location. These variable can be altered via changing the default values in vars.tf file.
+</p>
+
 ### Output
 
-> <pre><code> terraform apply solution.plan </code></pre> 
+><pre><code> terraform apply solution.plan </code></pre> 
 ![Apply solution plan](https://github.com/sonercand/azure-deployment/blob/project1/terraform_apply.PNG "Apply Solution.plan")
 ><pre><code> terraform state list   </code></pre> 
 ![Statelist](https://github.com/sonercand/azure-deployment/blob/project1/terraform_state_list.PNG "Statelist")
