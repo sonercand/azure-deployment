@@ -25,11 +25,22 @@ After cloning this repository, solution.plan file can be run via command termina
 * 6 run terraform apply solution.plan
 
 ### Instructions
-#### 1. Create packer image and deploy:
->Replace azurelocation with an actual azure location. <pre><code>az group create -l azureLocation -n packer-rg </code></pre> <br/>
->Change directory to where server.json is located. <pre><code>cd .\packer\linux_vm_image</code> </pre> <br/>
-><pre><code>packer build server.json </code></pre> <br/>
->Created resource name under the packer-rg resource group will be "packerLinuxImage"
+#### 1. Instruction for packer template, how to create a packer image and how to deploy:
+The packer template is saved to server.json file. The server file has instructions for Ubuntu server 18.04-LTS image. Additionally it contains information for azure resource location, virtual machine size and azure tags in builders section. Moreover once it is deployed for demonstration purposes the server runs 
+
+    "echo 'Hello, World!' > index.html"
+    
+and executes
+
+    "chmod +x {{ .Path }}; {{ .Vars }} sudo -E sh '{{ .Path }}'"
+##### how to deploy:
+Create the azure resource group. Note: the name should match to the one used in the server.json file as well as to the one refered in terraform template(main.tf).
+>Replace azurelocation with an actual azure location. <pre><code>az group create -l azureLocation -n packer-rg </code></pre> 
+Change directory in the command prompt to the location of server.json file.
+><pre><code>cd .\packer\linux_vm_image</code> </pre> 
+Run packer command. Command below will create an image under the packer-rg resource group( If not alread created, the resource group can be created via azure cli: az group create -l westeurope -n packer-rg).
+><pre><code>packer build server.json </code></pre> 
+>Created resource name under the packer-rg resource group will be "packerLinuxImage" (see server.json file).
 #### 2. Create and Assign tagging-policy(Optional): </li>
 > Steps below will define and assign a policy that rejects creation of any resource without atleast one tag.
 >Register policy definition.  <pre><code>Start a command line prompt under the directory policies\TagPolicy</code> </pre> 
