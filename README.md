@@ -1,13 +1,29 @@
 # Deploying a scalable IaaS web server in Azure
-<p>Deploys scalable, customazable azure web server via terraform and packer templates and azure cli.</p>
+### Overview
+This project contains scripts to create infrastucture as code in the form of Terraform template in order to deploy a website with load balancer. Scripts deploy a scalable, customizable azure web server via terraform and packer templates and azure cli. In addition to terraform template it also contains a packer template for a linux web server. The packer image is then used in the terraform template to deploy virtual machines.
+In short it can be used to deploy azure virtual machines with load balancer.
+Azure components created via main.tf are:
+*  resource group that holds all the components
+*  virtual network
+*  subnet
+*  network security group
+*  network security rules
+*  network interface
+*  public ip
+*  load balancer
+*  availability set
+*  virtual machine(s)
+
 
 ### Getting Started
-#### 1. Clone this repository
-#### 2. Start command prompt and change directory to terraform\server
-#### 3. run az group create -l westeurope -n packer-rg
-#### 4. >cd .\packer\linux_vm_image packer build server.json
-#### 5. run terraform init 
-#### 6. run terraform apply solution.plan
+After cloning this repository, solution.plan file can be run via command terminal(detailed steps are below). Only thing that needs to be done other than running solution.plan is to create packer-rg resource group to host the packer image. Note the resource group name has to packer-rg since there is a reference to it within the terraform template but it can simply modified into a variable by using variables.tf file. 
+* 1 Clone this repository
+* 2 Start command prompt and change directory to terraform\server
+* 3 run az group create -l westeurope -n packer-rg
+* 4 cd .\packer\linux_vm_image packer build server.json
+* 5 run terraform init 
+* 6 run terraform apply solution.plan
+
 ### Instructions
 #### 1. Create packer image and deploy:
 >Replace azurelocation with an actual azure location. <pre><code>az group create -l azureLocation -n packer-rg </code></pre> <br/>
