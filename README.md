@@ -74,10 +74,19 @@ Running terraform template:
 The vars.tf file contains all the configurable input variables used in the template. These are prefix, tag_env, tag_task, vm_count, location, username and password. 
 These variables serve as parameters providing a customizable template without the need to alter the source code. The default argument for all these variable are set  within the vars.tf therefore they are rendered as optional. Please see [terraform input variables documentation](https://www.terraform.io/docs/configuration/variables.html) for more information.
 If no option is set, running terraform plan or terraform apply commands will create a plan and apply that plan with the default variable values. However by appending -var="variableName=variableValue" to terraform plan or terraform apply command, the default values can be altered.
-Ex:
+
 
      terraform apply -var="vm_count=3"
 
+Alternatively varibles can be set using a variable file that contains only variable name assignments.  Example variables.tfvars file: 
+
+      prefix = "tf"
+      vm_count = 3
+      location = "westeurope"
+
+Apply using variables.tfvars file:
+
+      terraform apply -var-file="variables.tfvars"
 
 ### Output
 
