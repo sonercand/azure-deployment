@@ -657,7 +657,7 @@
             "timeouts": null
           },
           "sensitive_attributes": [],
-          "private":"private_key",
+          "private":"private_key"
         }
       ]
     },

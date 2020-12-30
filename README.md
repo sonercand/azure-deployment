@@ -96,7 +96,7 @@ Output from terraform apply is below:
         {
         "version": 4,
         "terraform_version": "0.14.2",
-        "serial": 199,
+        "serial": 238,
         "lineage": "2b0a798c-4cd3-2e3e-3042-c3717b6dbe82",
         "outputs": {},
         "resources": [
@@ -161,7 +161,7 @@ Output from terraform apply is below:
                     "timeouts": null
                 },
                 "sensitive_attributes": [],
-                "private": "private_key",
+                "private":"private_key",
                 "dependencies": [
                     "azurerm_resource_group.main"
                 ]
@@ -207,7 +207,7 @@ Output from terraform apply is below:
                     "timeouts": null
                 },
                 "sensitive_attributes": [],
-                "private": "private_key",
+                "private":"private_key",
                 "dependencies": [
                     "azurerm_public_ip.main",
                     "azurerm_resource_group.main"
@@ -233,7 +233,7 @@ Output from terraform apply is below:
                     "timeouts": null
                 },
                 "sensitive_attributes": [],
-                "private": "private_key",
+                "private":"private_key",
                 "dependencies": [
                     "azurerm_lb.main",
                     "azurerm_public_ip.main",
@@ -280,16 +280,16 @@ Output from terraform apply is below:
                         "diff_disk_settings": [],
                         "disk_encryption_set_id": "",
                         "disk_size_gb": 30,
-                        "name": "test-0-vm_disk1_ba1eb0339c584480a614b96eee7235dd",
+                        "name": "test-0-vm_disk1_aa5d2c7b9ae945cabcae91c81d264a0f",
                         "storage_account_type": "Standard_LRS",
                         "write_accelerator_enabled": false
                     }
                     ],
                     "plan": [],
                     "priority": "Regular",
-                    "private_ip_address": "10.0.1.5",
+                    "private_ip_address": "10.0.1.4",
                     "private_ip_addresses": [
-                    "10.0.1.5"
+                    "10.0.1.4"
                     ],
                     "provision_vm_agent": true,
                     "proximity_placement_group_id": "",
@@ -305,12 +305,12 @@ Output from terraform apply is below:
                     "task": "test"
                     },
                     "timeouts": null,
-                    "virtual_machine_id": "781712b6-1802-468f-bc97-23bd4ab567ad",
+                    "virtual_machine_id": "a361647f-be21-48ba-81f7-6859e9d51797",
                     "virtual_machine_scale_set_id": "",
                     "zone": ""
                 },
                 "sensitive_attributes": [],
-                "private": "private_key",
+                "private":"private_key",
                 "dependencies": [
                     "azurerm_availability_set.avset",
                     "azurerm_network_interface.main",
@@ -352,16 +352,16 @@ Output from terraform apply is below:
                         "diff_disk_settings": [],
                         "disk_encryption_set_id": "",
                         "disk_size_gb": 30,
-                        "name": "test-1-vm_disk1_c98a762a0bb6483c9ff5cc6664f262da",
+                        "name": "test-1-vm_disk1_8340b92dc85e4e159a87a5e68fa731b3",
                         "storage_account_type": "Standard_LRS",
                         "write_accelerator_enabled": false
                     }
                     ],
                     "plan": [],
                     "priority": "Regular",
-                    "private_ip_address": "10.0.1.4",
+                    "private_ip_address": "10.0.1.5",
                     "private_ip_addresses": [
-                    "10.0.1.4"
+                    "10.0.1.5"
                     ],
                     "provision_vm_agent": true,
                     "proximity_placement_group_id": "",
@@ -377,12 +377,12 @@ Output from terraform apply is below:
                     "task": "test"
                     },
                     "timeouts": null,
-                    "virtual_machine_id": "3e0ddd18-fa2c-40a2-9fe9-2cc1e40b019c",
+                    "virtual_machine_id": "9822dab7-1ece-4a58-a710-e0a687724792",
                     "virtual_machine_scale_set_id": "",
                     "zone": ""
                 },
                 "sensitive_attributes": [],
-                "private": "private_key",
+                "private":"private_key",
                 "dependencies": [
                     "azurerm_availability_set.avset",
                     "azurerm_network_interface.main",
@@ -410,12 +410,12 @@ Output from terraform apply is below:
                     "enable_ip_forwarding": false,
                     "id": "/subscriptions/subscription_id/resourceGroups/test-resources/providers/Microsoft.Network/networkInterfaces/nic-0",
                     "internal_dns_name_label": "",
-                    "internal_domain_name_suffix": "padigi2dyd1utpvjen52jonk5a.ax.internal.cloudapp.net",
+                    "internal_domain_name_suffix": "hvn0qmga1bnepppt23m54dpzla.ax.internal.cloudapp.net",
                     "ip_configuration": [
                     {
                         "name": "internal",
                         "primary": true,
-                        "private_ip_address": "10.0.1.5",
+                        "private_ip_address": "10.0.1.4",
                         "private_ip_address_allocation": "Dynamic",
                         "private_ip_address_version": "IPv4",
                         "public_ip_address_id": "",
@@ -425,9 +425,9 @@ Output from terraform apply is below:
                     "location": "westeurope",
                     "mac_address": "",
                     "name": "nic-0",
-                    "private_ip_address": "10.0.1.5",
+                    "private_ip_address": "10.0.1.4",
                     "private_ip_addresses": [
-                    "10.0.1.5"
+                    "10.0.1.4"
                     ],
                     "resource_group_name": "test-resources",
                     "tags": {
@@ -438,7 +438,7 @@ Output from terraform apply is below:
                     "virtual_machine_id": ""
                 },
                 "sensitive_attributes": [],
-                "private": "private_key",
+                "private":"private_key",
                 "dependencies": [
                     "azurerm_resource_group.main",
                     "azurerm_subnet.internal",
@@ -455,12 +455,12 @@ Output from terraform apply is below:
                     "enable_ip_forwarding": false,
                     "id": "/subscriptions/subscription_id/resourceGroups/test-resources/providers/Microsoft.Network/networkInterfaces/nic-1",
                     "internal_dns_name_label": "",
-                    "internal_domain_name_suffix": "padigi2dyd1utpvjen52jonk5a.ax.internal.cloudapp.net",
+                    "internal_domain_name_suffix": "hvn0qmga1bnepppt23m54dpzla.ax.internal.cloudapp.net",
                     "ip_configuration": [
                     {
                         "name": "internal",
                         "primary": true,
-                        "private_ip_address": "10.0.1.4",
+                        "private_ip_address": "10.0.1.5",
                         "private_ip_address_allocation": "Dynamic",
                         "private_ip_address_version": "IPv4",
                         "public_ip_address_id": "",
@@ -470,9 +470,9 @@ Output from terraform apply is below:
                     "location": "westeurope",
                     "mac_address": "",
                     "name": "nic-1",
-                    "private_ip_address": "10.0.1.4",
+                    "private_ip_address": "10.0.1.5",
                     "private_ip_addresses": [
-                    "10.0.1.4"
+                    "10.0.1.5"
                     ],
                     "resource_group_name": "test-resources",
                     "tags": {
@@ -483,7 +483,7 @@ Output from terraform apply is below:
                     "virtual_machine_id": ""
                 },
                 "sensitive_attributes": [],
-                "private": "private_key",
+                "private":"private_key",
                 "dependencies": [
                     "azurerm_resource_group.main",
                     "azurerm_subnet.internal",
@@ -509,7 +509,7 @@ Output from terraform apply is below:
                     "timeouts": null
                 },
                 "sensitive_attributes": [],
-                "private": "private_key",
+                "private":"private_key",
                 "dependencies": [
                     "azurerm_lb.main",
                     "azurerm_lb_backend_address_pool.main",
@@ -531,7 +531,7 @@ Output from terraform apply is below:
                     "timeouts": null
                 },
                 "sensitive_attributes": [],
-                "private": "private_key",
+                "private":"private_key",
                 "dependencies": [
                     "azurerm_lb.main",
                     "azurerm_lb_backend_address_pool.main",
@@ -560,7 +560,7 @@ Output from terraform apply is below:
                     "timeouts": null
                 },
                 "sensitive_attributes": [],
-                "private": "private_key",
+                "private":"private_key",
                 "dependencies": [
                     "azurerm_network_interface.main",
                     "azurerm_network_security_group.network_security_group",
@@ -579,7 +579,7 @@ Output from terraform apply is below:
                     "timeouts": null
                 },
                 "sensitive_attributes": [],
-                "private": "private_key",
+                "private":"private_key",
                 "dependencies": [
                     "azurerm_network_interface.main",
                     "azurerm_network_security_group.network_security_group",
@@ -611,7 +611,7 @@ Output from terraform apply is below:
                     "timeouts": null
                 },
                 "sensitive_attributes": [],
-                "private": "private_key",
+                "private":"private_key",
                 "dependencies": [
                     "azurerm_resource_group.main"
                 ]
@@ -649,7 +649,7 @@ Output from terraform apply is below:
                     "timeouts": null
                 },
                 "sensitive_attributes": [],
-                "private": "private_key",
+                "private":"private_key",
                 "dependencies": [
                     "azurerm_network_security_group.network_security_group",
                     "azurerm_resource_group.main"
@@ -668,7 +668,7 @@ Output from terraform apply is below:
                 "attributes": {
                     "access": "Deny",
                     "description": "",
-                    "destination_address_prefix": "*",
+                    "destination_address_prefix": "VirtualNetwork",
                     "destination_address_prefixes": null,
                     "destination_application_security_group_ids": null,
                     "destination_port_range": "*",
@@ -688,7 +688,7 @@ Output from terraform apply is below:
                     "timeouts": null
                 },
                 "sensitive_attributes": [],
-                "private": "private_key",
+                "private":"private_key",
                 "dependencies": [
                     "azurerm_network_security_group.network_security_group",
                     "azurerm_resource_group.main"
@@ -710,7 +710,7 @@ Output from terraform apply is below:
                     "fqdn": null,
                     "id": "/subscriptions/subscription_id/resourceGroups/test-resources/providers/Microsoft.Network/publicIPAddresses/main",
                     "idle_timeout_in_minutes": 4,
-                    "ip_address": "13.69.80.236",
+                    "ip_address": "13.73.182.124",
                     "ip_version": "IPv4",
                     "location": "westeurope",
                     "name": "main",
@@ -726,7 +726,7 @@ Output from terraform apply is below:
                     "zones": null
                 },
                 "sensitive_attributes": [],
-                "private": "private_key",
+                "private":"private_key",
                 "dependencies": [
                     "azurerm_resource_group.main"
                 ]
@@ -752,7 +752,7 @@ Output from terraform apply is below:
                     "timeouts": null
                 },
                 "sensitive_attributes": [],
-                "private": "private_key"
+                "private":"private_key",
                 }
             ]
             },
@@ -781,7 +781,7 @@ Output from terraform apply is below:
                     "virtual_network_name": "test-network"
                 },
                 "sensitive_attributes": [],
-                "private": "private_key",
+                "private":"private_key",
                 "dependencies": [
                     "azurerm_resource_group.main",
                     "azurerm_virtual_network.main"
@@ -804,7 +804,7 @@ Output from terraform apply is below:
                     "bgp_community": "",
                     "ddos_protection_plan": [],
                     "dns_servers": null,
-                    "guid": "23830678-c083-49f7-bea9-237fc4b9aaf8",
+                    "guid": "30a85b3d-d8c0-475a-bdf3-e759ff0df958",
                     "id": "/subscriptions/subscription_id/resourceGroups/test-resources/providers/Microsoft.Network/virtualNetworks/test-network",
                     "location": "westeurope",
                     "name": "test-network",
@@ -818,7 +818,7 @@ Output from terraform apply is below:
                     "vm_protection_enabled": false
                 },
                 "sensitive_attributes": [],
-                "private": "private_key",
+                "private":"private_key",
                 "dependencies": [
                     "azurerm_resource_group.main"
                 ]
@@ -827,6 +827,7 @@ Output from terraform apply is below:
             }
         ]
         }
+
 
 
 
