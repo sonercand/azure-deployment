@@ -36,13 +36,13 @@ resource "azurerm_network_security_group" "network_security_group" {
 }
 resource "azurerm_network_security_rule" "deny_inbound_internet" {
   name                        = "${var.prefix}-deny_inbound_internet"
-  priority                    = 100
+  priority                    = 102
   direction                   = "Inbound"
   access                      = "Deny"
   protocol                    = "*"
   source_port_range           = "*"
   destination_port_range      = "*"
-  source_address_prefix       = "*"
+  source_address_prefix       = "Internet"
   destination_address_prefix  = "*"
   resource_group_name         = azurerm_resource_group.main.name
   network_security_group_name = azurerm_network_security_group.network_security_group.name
