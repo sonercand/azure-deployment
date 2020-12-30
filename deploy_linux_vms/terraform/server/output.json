@@ -1,735 +1,734 @@
-
+{
+  "version": 4,
+  "terraform_version": "0.14.2",
+  "serial": 238,
+  "lineage": "2b0a798c-4cd3-2e3e-3042-c3717b6dbe82",
+  "outputs": {},
+  "resources": [
+    {
+      "mode": "data",
+      "type": "azurerm_image",
+      "name": "packer-image",
+      "provider": "provider[\"registry.terraform.io/hashicorp/azurerm\"]",
+      "instances": [
         {
-          "version": 4,
-          "terraform_version": "0.14.2",
-          "serial": 199,
-          "lineage": "2b0a798c-4cd3-2e3e-3042-c3717b6dbe82",
-          "outputs": {},
-          "resources": [
+          "schema_version": 0,
+          "attributes": {
+            "data_disk": [],
+            "id": "/subscriptions/subscription_id/resourceGroups/packer-rg/providers/Microsoft.Compute/images/packerLinuxImage",
+            "location": "westeurope",
+            "name": "packerLinuxImage",
+            "name_regex": null,
+            "os_disk": [
               {
-              "mode": "data",
-              "type": "azurerm_image",
-              "name": "packer-image",
-              "provider": "provider[\"registry.terraform.io/hashicorp/azurerm\"]",
-              "instances": [
-                  {
-                  "schema_version": 0,
-                  "attributes": {
-                      "data_disk": [],
-                      "id": "/subscriptions/subscription_id/resourceGroups/packer-rg/providers/Microsoft.Compute/images/packerLinuxImage",
-                      "location": "westeurope",
-                      "name": "packerLinuxImage",
-                      "name_regex": null,
-                      "os_disk": [
-                      {
-                          "blob_uri": "",
-                          "caching": "ReadWrite",
-                          "managed_disk_id": "/subscriptions/subscription_id/resourceGroups/pkr-Resource-Group-7ca9z0ygir/providers/Microsoft.Compute/disks/pkros7ca9z0ygir",
-                          "os_state": "Generalized",
-                          "os_type": "Linux",
-                          "size_gb": 30
-                      }
-                      ],
-                      "resource_group_name": "packer-rg",
-                      "sort_descending": false,
-                      "tags": {
-                      "env": "test",
-                      "task": "Image deployment test"
-                      },
-                      "timeouts": null,
-                      "zone_resilient": false
-                  },
-                  "sensitive_attributes": []
-                  }
-              ]
-              },
-              {
-              "mode": "managed",
-              "type": "azurerm_availability_set",
-              "name": "avset",
-              "provider": "provider[\"registry.terraform.io/hashicorp/azurerm\"]",
-              "instances": [
-                  {
-                  "schema_version": 0,
-                  "attributes": {
-                      "id": "/subscriptions/subscription_id/resourceGroups/test-resources/providers/Microsoft.Compute/availabilitySets/avset",
-                      "location": "westeurope",
-                      "managed": true,
-                      "name": "avset",
-                      "platform_fault_domain_count": 2,
-                      "platform_update_domain_count": 2,
-                      "proximity_placement_group_id": null,
-                      "resource_group_name": "test-resources",
-                      "tags": {
-                      "env": "test",
-                      "task": "test"
-                      },
-                      "timeouts": null
-                  },
-                  "sensitive_attributes": [],
-                  "private": "private_key",
-                  "dependencies": [
-                      "azurerm_resource_group.main"
-                  ]
-                  }
-              ]
-              },
-              {
-              "mode": "managed",
-              "type": "azurerm_lb",
-              "name": "main",
-              "provider": "provider[\"registry.terraform.io/hashicorp/azurerm\"]",
-              "instances": [
-                  {
-                  "schema_version": 0,
-                  "attributes": {
-                      "frontend_ip_configuration": [
-                      {
-                          "id": "/subscriptions/subscription_id/resourceGroups/test-resources/providers/Microsoft.Network/loadBalancers/main/frontendIPConfigurations/PublicIPAddress",
-                          "inbound_nat_rules": [],
-                          "load_balancer_rules": [],
-                          "name": "PublicIPAddress",
-                          "outbound_rules": [],
-                          "private_ip_address": "",
-                          "private_ip_address_allocation": "Dynamic",
-                          "private_ip_address_version": "IPv4",
-                          "public_ip_address_id": "/subscriptions/subscription_id/resourceGroups/test-resources/providers/Microsoft.Network/publicIPAddresses/main",
-                          "public_ip_prefix_id": "",
-                          "subnet_id": "",
-                          "zones": null
-                      }
-                      ],
-                      "id": "/subscriptions/subscription_id/resourceGroups/test-resources/providers/Microsoft.Network/loadBalancers/main",
-                      "location": "westeurope",
-                      "name": "main",
-                      "private_ip_address": "",
-                      "private_ip_addresses": [],
-                      "resource_group_name": "test-resources",
-                      "sku": "Basic",
-                      "tags": {
-                      "env": "test",
-                      "task": "test"
-                      },
-                      "timeouts": null
-                  },
-                  "sensitive_attributes": [],
-                  "private": "private_key",
-                  "dependencies": [
-                      "azurerm_public_ip.main",
-                      "azurerm_resource_group.main"
-                  ]
-                  }
-              ]
-              },
-              {
-              "mode": "managed",
-              "type": "azurerm_lb_backend_address_pool",
-              "name": "main",
-              "provider": "provider[\"registry.terraform.io/hashicorp/azurerm\"]",
-              "instances": [
-                  {
-                  "schema_version": 0,
-                  "attributes": {
-                      "backend_ip_configurations": [],
-                      "id": "/subscriptions/subscription_id/resourceGroups/test-resources/providers/Microsoft.Network/loadBalancers/main/backendAddressPools/BackEndAddressPool",
-                      "load_balancing_rules": [],
-                      "loadbalancer_id": "/subscriptions/subscription_id/resourceGroups/test-resources/providers/Microsoft.Network/loadBalancers/main",
-                      "name": "BackEndAddressPool",
-                      "resource_group_name": "test-resources",
-                      "timeouts": null
-                  },
-                  "sensitive_attributes": [],
-                  "private": "private_key",
-                  "dependencies": [
-                      "azurerm_lb.main",
-                      "azurerm_public_ip.main",
-                      "azurerm_resource_group.main"
-                  ]
-                  }
-              ]
-              },
-              {
-              "mode": "managed",
-              "type": "azurerm_linux_virtual_machine",
-              "name": "main",
-              "provider": "provider[\"registry.terraform.io/hashicorp/azurerm\"]",
-              "instances": [
-                  {
-                  "index_key": 0,
-                  "schema_version": 0,
-                  "attributes": {
-                      "additional_capabilities": [],
-                      "admin_password": "adch34!3d$;1A",
-                      "admin_ssh_key": [],
-                      "admin_username": "a45ka",
-                      "allow_extension_operations": true,
-                      "availability_set_id": "/subscriptions/subscription_id/resourceGroups/test-resources/providers/Microsoft.Compute/availabilitySets/AVSET",
-                      "boot_diagnostics": [],
-                      "computer_name": "test-0-vm",
-                      "custom_data": null,
-                      "dedicated_host_id": "",
-                      "disable_password_authentication": false,
-                      "encryption_at_host_enabled": false,
-                      "eviction_policy": "",
-                      "extensions_time_budget": "PT1H30M",
-                      "id": "/subscriptions/subscription_id/resourceGroups/test-resources/providers/Microsoft.Compute/virtualMachines/test-0-vm",
-                      "identity": [],
-                      "location": "westeurope",
-                      "max_bid_price": -1,
-                      "name": "test-0-vm",
-                      "network_interface_ids": [
-                      "/subscriptions/subscription_id/resourceGroups/test-resources/providers/Microsoft.Network/networkInterfaces/nic-0"
-                      ],
-                      "os_disk": [
-                      {
-                          "caching": "ReadWrite",
-                          "diff_disk_settings": [],
-                          "disk_encryption_set_id": "",
-                          "disk_size_gb": 30,
-                          "name": "test-0-vm_disk1_ba1eb0339c584480a614b96eee7235dd",
-                          "storage_account_type": "Standard_LRS",
-                          "write_accelerator_enabled": false
-                      }
-                      ],
-                      "plan": [],
-                      "priority": "Regular",
-                      "private_ip_address": "10.0.1.5",
-                      "private_ip_addresses": [
-                      "10.0.1.5"
-                      ],
-                      "provision_vm_agent": true,
-                      "proximity_placement_group_id": "",
-                      "public_ip_address": "",
-                      "public_ip_addresses": [],
-                      "resource_group_name": "test-resources",
-                      "secret": [],
-                      "size": "Standard_A2",
-                      "source_image_id": "/subscriptions/subscription_id/resourceGroups/packer-rg/providers/Microsoft.Compute/images/packerLinuxImage",
-                      "source_image_reference": [],
-                      "tags": {
-                      "env": "test",
-                      "task": "test"
-                      },
-                      "timeouts": null,
-                      "virtual_machine_id": "781712b6-1802-468f-bc97-23bd4ab567ad",
-                      "virtual_machine_scale_set_id": "",
-                      "zone": ""
-                  },
-                  "sensitive_attributes": [],
-                  "private": "private_key",
-                  "dependencies": [
-                      "azurerm_availability_set.avset",
-                      "azurerm_network_interface.main",
-                      "azurerm_resource_group.main",
-                      "azurerm_subnet.internal",
-                      "azurerm_virtual_network.main",
-                      "data.azurerm_image.packer-image"
-                  ]
-                  },
-                  {
-                  "index_key": 1,
-                  "schema_version": 0,
-                  "attributes": {
-                      "additional_capabilities": [],
-                      "admin_password": "adch34!3d$;1A",
-                      "admin_ssh_key": [],
-                      "admin_username": "a45ka",
-                      "allow_extension_operations": true,
-                      "availability_set_id": "/subscriptions/subscription_id/resourceGroups/test-resources/providers/Microsoft.Compute/availabilitySets/AVSET",
-                      "boot_diagnostics": [],
-                      "computer_name": "test-1-vm",
-                      "custom_data": null,
-                      "dedicated_host_id": "",
-                      "disable_password_authentication": false,
-                      "encryption_at_host_enabled": false,
-                      "eviction_policy": "",
-                      "extensions_time_budget": "PT1H30M",
-                      "id": "/subscriptions/subscription_id/resourceGroups/test-resources/providers/Microsoft.Compute/virtualMachines/test-1-vm",
-                      "identity": [],
-                      "location": "westeurope",
-                      "max_bid_price": -1,
-                      "name": "test-1-vm",
-                      "network_interface_ids": [
-                      "/subscriptions/subscription_id/resourceGroups/test-resources/providers/Microsoft.Network/networkInterfaces/nic-1"
-                      ],
-                      "os_disk": [
-                      {
-                          "caching": "ReadWrite",
-                          "diff_disk_settings": [],
-                          "disk_encryption_set_id": "",
-                          "disk_size_gb": 30,
-                          "name": "test-1-vm_disk1_c98a762a0bb6483c9ff5cc6664f262da",
-                          "storage_account_type": "Standard_LRS",
-                          "write_accelerator_enabled": false
-                      }
-                      ],
-                      "plan": [],
-                      "priority": "Regular",
-                      "private_ip_address": "10.0.1.4",
-                      "private_ip_addresses": [
-                      "10.0.1.4"
-                      ],
-                      "provision_vm_agent": true,
-                      "proximity_placement_group_id": "",
-                      "public_ip_address": "",
-                      "public_ip_addresses": [],
-                      "resource_group_name": "test-resources",
-                      "secret": [],
-                      "size": "Standard_A2",
-                      "source_image_id": "/subscriptions/subscription_id/resourceGroups/packer-rg/providers/Microsoft.Compute/images/packerLinuxImage",
-                      "source_image_reference": [],
-                      "tags": {
-                      "env": "test",
-                      "task": "test"
-                      },
-                      "timeouts": null,
-                      "virtual_machine_id": "3e0ddd18-fa2c-40a2-9fe9-2cc1e40b019c",
-                      "virtual_machine_scale_set_id": "",
-                      "zone": ""
-                  },
-                  "sensitive_attributes": [],
-                  "private": "private_key",
-                  "dependencies": [
-                      "azurerm_availability_set.avset",
-                      "azurerm_network_interface.main",
-                      "azurerm_resource_group.main",
-                      "azurerm_subnet.internal",
-                      "azurerm_virtual_network.main",
-                      "data.azurerm_image.packer-image"
-                  ]
-                  }
-              ]
-              },
-              {
-              "mode": "managed",
-              "type": "azurerm_network_interface",
-              "name": "main",
-              "provider": "provider[\"registry.terraform.io/hashicorp/azurerm\"]",
-              "instances": [
-                  {
-                  "index_key": 0,
-                  "schema_version": 0,
-                  "attributes": {
-                      "applied_dns_servers": [],
-                      "dns_servers": [],
-                      "enable_accelerated_networking": false,
-                      "enable_ip_forwarding": false,
-                      "id": "/subscriptions/subscription_id/resourceGroups/test-resources/providers/Microsoft.Network/networkInterfaces/nic-0",
-                      "internal_dns_name_label": "",
-                      "internal_domain_name_suffix": "padigi2dyd1utpvjen52jonk5a.ax.internal.cloudapp.net",
-                      "ip_configuration": [
-                      {
-                          "name": "internal",
-                          "primary": true,
-                          "private_ip_address": "10.0.1.5",
-                          "private_ip_address_allocation": "Dynamic",
-                          "private_ip_address_version": "IPv4",
-                          "public_ip_address_id": "",
-                          "subnet_id": "/subscriptions/subscription_id/resourceGroups/test-resources/providers/Microsoft.Network/virtualNetworks/test-network/subnets/test-subnet"
-                      }
-                      ],
-                      "location": "westeurope",
-                      "mac_address": "",
-                      "name": "nic-0",
-                      "private_ip_address": "10.0.1.5",
-                      "private_ip_addresses": [
-                      "10.0.1.5"
-                      ],
-                      "resource_group_name": "test-resources",
-                      "tags": {
-                      "env": "test",
-                      "task": "test"
-                      },
-                      "timeouts": null,
-                      "virtual_machine_id": ""
-                  },
-                  "sensitive_attributes": [],
-                  "private": "private_key",
-                  "dependencies": [
-                      "azurerm_resource_group.main",
-                      "azurerm_subnet.internal",
-                      "azurerm_virtual_network.main"
-                  ]
-                  },
-                  {
-                  "index_key": 1,
-                  "schema_version": 0,
-                  "attributes": {
-                      "applied_dns_servers": [],
-                      "dns_servers": [],
-                      "enable_accelerated_networking": false,
-                      "enable_ip_forwarding": false,
-                      "id": "/subscriptions/subscription_id/resourceGroups/test-resources/providers/Microsoft.Network/networkInterfaces/nic-1",
-                      "internal_dns_name_label": "",
-                      "internal_domain_name_suffix": "padigi2dyd1utpvjen52jonk5a.ax.internal.cloudapp.net",
-                      "ip_configuration": [
-                      {
-                          "name": "internal",
-                          "primary": true,
-                          "private_ip_address": "10.0.1.4",
-                          "private_ip_address_allocation": "Dynamic",
-                          "private_ip_address_version": "IPv4",
-                          "public_ip_address_id": "",
-                          "subnet_id": "/subscriptions/subscription_id/resourceGroups/test-resources/providers/Microsoft.Network/virtualNetworks/test-network/subnets/test-subnet"
-                      }
-                      ],
-                      "location": "westeurope",
-                      "mac_address": "",
-                      "name": "nic-1",
-                      "private_ip_address": "10.0.1.4",
-                      "private_ip_addresses": [
-                      "10.0.1.4"
-                      ],
-                      "resource_group_name": "test-resources",
-                      "tags": {
-                      "env": "test",
-                      "task": "test"
-                      },
-                      "timeouts": null,
-                      "virtual_machine_id": ""
-                  },
-                  "sensitive_attributes": [],
-                  "private": "private_key",
-                  "dependencies": [
-                      "azurerm_resource_group.main",
-                      "azurerm_subnet.internal",
-                      "azurerm_virtual_network.main"
-                  ]
-                  }
-              ]
-              },
-              {
-              "mode": "managed",
-              "type": "azurerm_network_interface_backend_address_pool_association",
-              "name": "main",
-              "provider": "provider[\"registry.terraform.io/hashicorp/azurerm\"]",
-              "instances": [
-                  {
-                  "index_key": 0,
-                  "schema_version": 0,
-                  "attributes": {
-                      "backend_address_pool_id": "/subscriptions/subscription_id/resourceGroups/test-resources/providers/Microsoft.Network/loadBalancers/main/backendAddressPools/BackEndAddressPool",
-                      "id": "/subscriptions/subscription_id/resourceGroups/test-resources/providers/Microsoft.Network/networkInterfaces/nic-0/ipConfigurations/internal|/subscriptions/subscription_id/resourceGroups/test-resources/providers/Microsoft.Network/loadBalancers/main/backendAddressPools/BackEndAddressPool",
-                      "ip_configuration_name": "internal",
-                      "network_interface_id": "/subscriptions/subscription_id/resourceGroups/test-resources/providers/Microsoft.Network/networkInterfaces/nic-0",
-                      "timeouts": null
-                  },
-                  "sensitive_attributes": [],
-                  "private": "private_key",
-                  "dependencies": [
-                      "azurerm_lb.main",
-                      "azurerm_lb_backend_address_pool.main",
-                      "azurerm_network_interface.main",
-                      "azurerm_public_ip.main",
-                      "azurerm_resource_group.main",
-                      "azurerm_subnet.internal",
-                      "azurerm_virtual_network.main"
-                  ]
-                  },
-                  {
-                  "index_key": 1,
-                  "schema_version": 0,
-                  "attributes": {
-                      "backend_address_pool_id": "/subscriptions/subscription_id/resourceGroups/test-resources/providers/Microsoft.Network/loadBalancers/main/backendAddressPools/BackEndAddressPool",
-                      "id": "/subscriptions/subscription_id/resourceGroups/test-resources/providers/Microsoft.Network/networkInterfaces/nic-1/ipConfigurations/internal|/subscriptions/subscription_id/resourceGroups/test-resources/providers/Microsoft.Network/loadBalancers/main/backendAddressPools/BackEndAddressPool",
-                      "ip_configuration_name": "internal",
-                      "network_interface_id": "/subscriptions/subscription_id/resourceGroups/test-resources/providers/Microsoft.Network/networkInterfaces/nic-1",
-                      "timeouts": null
-                  },
-                  "sensitive_attributes": [],
-                  "private": "private_key",
-                  "dependencies": [
-                      "azurerm_lb.main",
-                      "azurerm_lb_backend_address_pool.main",
-                      "azurerm_network_interface.main",
-                      "azurerm_public_ip.main",
-                      "azurerm_resource_group.main",
-                      "azurerm_subnet.internal",
-                      "azurerm_virtual_network.main"
-                  ]
-                  }
-              ]
-              },
-              {
-              "mode": "managed",
-              "type": "azurerm_network_interface_security_group_association",
-              "name": "nic_sec_assoc",
-              "provider": "provider[\"registry.terraform.io/hashicorp/azurerm\"]",
-              "instances": [
-                  {
-                  "index_key": 0,
-                  "schema_version": 0,
-                  "attributes": {
-                      "id": "/subscriptions/subscription_id/resourceGroups/test-resources/providers/Microsoft.Network/networkInterfaces/nic-0|/subscriptions/subscription_id/resourceGroups/test-resources/providers/Microsoft.Network/networkSecurityGroups/test-nsg",
-                      "network_interface_id": "/subscriptions/subscription_id/resourceGroups/test-resources/providers/Microsoft.Network/networkInterfaces/nic-0",
-                      "network_security_group_id": "/subscriptions/subscription_id/resourceGroups/test-resources/providers/Microsoft.Network/networkSecurityGroups/test-nsg",
-                      "timeouts": null
-                  },
-                  "sensitive_attributes": [],
-                  "private": "private_key",
-                  "dependencies": [
-                      "azurerm_network_interface.main",
-                      "azurerm_network_security_group.network_security_group",
-                      "azurerm_resource_group.main",
-                      "azurerm_subnet.internal",
-                      "azurerm_virtual_network.main"
-                  ]
-                  },
-                  {
-                  "index_key": 1,
-                  "schema_version": 0,
-                  "attributes": {
-                      "id": "/subscriptions/subscription_id/resourceGroups/test-resources/providers/Microsoft.Network/networkInterfaces/nic-1|/subscriptions/subscription_id/resourceGroups/test-resources/providers/Microsoft.Network/networkSecurityGroups/test-nsg",
-                      "network_interface_id": "/subscriptions/subscription_id/resourceGroups/test-resources/providers/Microsoft.Network/networkInterfaces/nic-1",
-                      "network_security_group_id": "/subscriptions/subscription_id/resourceGroups/test-resources/providers/Microsoft.Network/networkSecurityGroups/test-nsg",
-                      "timeouts": null
-                  },
-                  "sensitive_attributes": [],
-                  "private": "private_key",
-                  "dependencies": [
-                      "azurerm_network_interface.main",
-                      "azurerm_network_security_group.network_security_group",
-                      "azurerm_resource_group.main",
-                      "azurerm_subnet.internal",
-                      "azurerm_virtual_network.main"
-                  ]
-                  }
-              ]
-              },
-              {
-              "mode": "managed",
-              "type": "azurerm_network_security_group",
-              "name": "network_security_group",
-              "provider": "provider[\"registry.terraform.io/hashicorp/azurerm\"]",
-              "instances": [
-                  {
-                  "schema_version": 0,
-                  "attributes": {
-                      "id": "/subscriptions/subscription_id/resourceGroups/test-resources/providers/Microsoft.Network/networkSecurityGroups/test-nsg",
-                      "location": "westeurope",
-                      "name": "test-nsg",
-                      "resource_group_name": "test-resources",
-                      "security_rule": [],
-                      "tags": {
-                      "env": "test",
-                      "task": "test"
-                      },
-                      "timeouts": null
-                  },
-                  "sensitive_attributes": [],
-                  "private": "private_key",
-                  "dependencies": [
-                      "azurerm_resource_group.main"
-                  ]
-                  }
-              ]
-              },
-              {
-              "mode": "managed",
-              "type": "azurerm_network_security_rule",
-              "name": "allow_subnet_traffic",
-              "provider": "provider[\"registry.terraform.io/hashicorp/azurerm\"]",
-              "instances": [
-                  {
-                  "schema_version": 0,
-                  "attributes": {
-                      "access": "Allow",
-                      "description": "",
-                      "destination_address_prefix": "*",
-                      "destination_address_prefixes": null,
-                      "destination_application_security_group_ids": null,
-                      "destination_port_range": "*",
-                      "destination_port_ranges": null,
-                      "direction": "Inbound",
-                      "id": "/subscriptions/subscription_id/resourceGroups/test-resources/providers/Microsoft.Network/networkSecurityGroups/test-nsg/securityRules/test-allow_subnet_traffic",
-                      "name": "test-allow_subnet_traffic",
-                      "network_security_group_name": "test-nsg",
-                      "priority": 101,
-                      "protocol": "*",
-                      "resource_group_name": "test-resources",
-                      "source_address_prefix": "10.0.1.0/24",
-                      "source_address_prefixes": null,
-                      "source_application_security_group_ids": null,
-                      "source_port_range": "*",
-                      "source_port_ranges": null,
-                      "timeouts": null
-                  },
-                  "sensitive_attributes": [],
-                  "private": "private_key",
-                  "dependencies": [
-                      "azurerm_network_security_group.network_security_group",
-                      "azurerm_resource_group.main"
-                  ]
-                  }
-              ]
-              },
-              {
-              "mode": "managed",
-              "type": "azurerm_network_security_rule",
-              "name": "deny_inbound_internet",
-              "provider": "provider[\"registry.terraform.io/hashicorp/azurerm\"]",
-              "instances": [
-                  {
-                  "schema_version": 0,
-                  "attributes": {
-                      "access": "Deny",
-                      "description": "",
-                      "destination_address_prefix": "*",
-                      "destination_address_prefixes": null,
-                      "destination_application_security_group_ids": null,
-                      "destination_port_range": "*",
-                      "destination_port_ranges": null,
-                      "direction": "Inbound",
-                      "id": "/subscriptions/subscription_id/resourceGroups/test-resources/providers/Microsoft.Network/networkSecurityGroups/test-nsg/securityRules/test-deny_inbound_internet",
-                      "name": "test-deny_inbound_internet",
-                      "network_security_group_name": "test-nsg",
-                      "priority": 102,
-                      "protocol": "*",
-                      "resource_group_name": "test-resources",
-                      "source_address_prefix": "Internet",
-                      "source_address_prefixes": null,
-                      "source_application_security_group_ids": null,
-                      "source_port_range": "*",
-                      "source_port_ranges": null,
-                      "timeouts": null
-                  },
-                  "sensitive_attributes": [],
-                  "private": "private_key",
-                  "dependencies": [
-                      "azurerm_network_security_group.network_security_group",
-                      "azurerm_resource_group.main"
-                  ]
-                  }
-              ]
-              },
-              {
-              "mode": "managed",
-              "type": "azurerm_public_ip",
-              "name": "main",
-              "provider": "provider[\"registry.terraform.io/hashicorp/azurerm\"]",
-              "instances": [
-                  {
-                  "schema_version": 0,
-                  "attributes": {
-                      "allocation_method": "Static",
-                      "domain_name_label": null,
-                      "fqdn": null,
-                      "id": "/subscriptions/subscription_id/resourceGroups/test-resources/providers/Microsoft.Network/publicIPAddresses/main",
-                      "idle_timeout_in_minutes": 4,
-                      "ip_address": "13.69.80.236",
-                      "ip_version": "IPv4",
-                      "location": "westeurope",
-                      "name": "main",
-                      "public_ip_prefix_id": null,
-                      "resource_group_name": "test-resources",
-                      "reverse_fqdn": null,
-                      "sku": "Basic",
-                      "tags": {
-                      "env": "test",
-                      "task": "test"
-                      },
-                      "timeouts": null,
-                      "zones": null
-                  },
-                  "sensitive_attributes": [],
-                  "private": "private_key",
-                  "dependencies": [
-                      "azurerm_resource_group.main"
-                  ]
-                  }
-              ]
-              },
-              {
-              "mode": "managed",
-              "type": "azurerm_resource_group",
-              "name": "main",
-              "provider": "provider[\"registry.terraform.io/hashicorp/azurerm\"]",
-              "instances": [
-                  {
-                  "schema_version": 0,
-                  "attributes": {
-                      "id": "/subscriptions/subscription_id/resourceGroups/test-resources",
-                      "location": "westeurope",
-                      "name": "test-resources",
-                      "tags": {
-                      "env": "test",
-                      "task": "test"
-                      },
-                      "timeouts": null
-                  },
-                  "sensitive_attributes": [],
-                  "private": "private_key"
-                  }
-              ]
-              },
-              {
-              "mode": "managed",
-              "type": "azurerm_subnet",
-              "name": "internal",
-              "provider": "provider[\"registry.terraform.io/hashicorp/azurerm\"]",
-              "instances": [
-                  {
-                  "schema_version": 0,
-                  "attributes": {
-                      "address_prefix": "10.0.1.0/24",
-                      "address_prefixes": [
-                      "10.0.1.0/24"
-                      ],
-                      "delegation": [],
-                      "enforce_private_link_endpoint_network_policies": false,
-                      "enforce_private_link_service_network_policies": false,
-                      "id": "/subscriptions/subscription_id/resourceGroups/test-resources/providers/Microsoft.Network/virtualNetworks/test-network/subnets/test-subnet",
-                      "name": "test-subnet",
-                      "resource_group_name": "test-resources",
-                      "service_endpoint_policy_ids": null,
-                      "service_endpoints": null,
-                      "timeouts": null,
-                      "virtual_network_name": "test-network"
-                  },
-                  "sensitive_attributes": [],
-                  "private": "private_key",
-                  "dependencies": [
-                      "azurerm_resource_group.main",
-                      "azurerm_virtual_network.main"
-                  ]
-                  }
-              ]
-              },
-              {
-              "mode": "managed",
-              "type": "azurerm_virtual_network",
-              "name": "main",
-              "provider": "provider[\"registry.terraform.io/hashicorp/azurerm\"]",
-              "instances": [
-                  {
-                  "schema_version": 0,
-                  "attributes": {
-                      "address_space": [
-                      "10.0.0.0/16"
-                      ],
-                      "bgp_community": "",
-                      "ddos_protection_plan": [],
-                      "dns_servers": null,
-                      "guid": "23830678-c083-49f7-bea9-237fc4b9aaf8",
-                      "id": "/subscriptions/subscription_id/resourceGroups/test-resources/providers/Microsoft.Network/virtualNetworks/test-network",
-                      "location": "westeurope",
-                      "name": "test-network",
-                      "resource_group_name": "test-resources",
-                      "subnet": [],
-                      "tags": {
-                      "env": "test",
-                      "task": "test"
-                      },
-                      "timeouts": null,
-                      "vm_protection_enabled": false
-                  },
-                  "sensitive_attributes": [],
-                  "private": "private_key",
-                  "dependencies": [
-                      "azurerm_resource_group.main"
-                  ]
-                  }
-              ]
+                "blob_uri": "",
+                "caching": "ReadWrite",
+                "managed_disk_id": "/subscriptions/subscription_id/resourceGroups/pkr-Resource-Group-7ca9z0ygir/providers/Microsoft.Compute/disks/pkros7ca9z0ygir",
+                "os_state": "Generalized",
+                "os_type": "Linux",
+                "size_gb": 30
               }
+            ],
+            "resource_group_name": "packer-rg",
+            "sort_descending": false,
+            "tags": {
+              "env": "test",
+              "task": "Image deployment test"
+            },
+            "timeouts": null,
+            "zone_resilient": false
+          },
+          "sensitive_attributes": []
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "azurerm_availability_set",
+      "name": "avset",
+      "provider": "provider[\"registry.terraform.io/hashicorp/azurerm\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "id": "/subscriptions/subscription_id/resourceGroups/test-resources/providers/Microsoft.Compute/availabilitySets/avset",
+            "location": "westeurope",
+            "managed": true,
+            "name": "avset",
+            "platform_fault_domain_count": 2,
+            "platform_update_domain_count": 2,
+            "proximity_placement_group_id": null,
+            "resource_group_name": "test-resources",
+            "tags": {
+              "env": "test",
+              "task": "test"
+            },
+            "timeouts": null
+          },
+          "sensitive_attributes": [],
+          "private":"private_key",,
+          "dependencies": [
+            "azurerm_resource_group.main"
           ]
-          }
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "azurerm_lb",
+      "name": "main",
+      "provider": "provider[\"registry.terraform.io/hashicorp/azurerm\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "frontend_ip_configuration": [
+              {
+                "id": "/subscriptions/subscription_id/resourceGroups/test-resources/providers/Microsoft.Network/loadBalancers/main/frontendIPConfigurations/PublicIPAddress",
+                "inbound_nat_rules": [],
+                "load_balancer_rules": [],
+                "name": "PublicIPAddress",
+                "outbound_rules": [],
+                "private_ip_address": "",
+                "private_ip_address_allocation": "Dynamic",
+                "private_ip_address_version": "IPv4",
+                "public_ip_address_id": "/subscriptions/subscription_id/resourceGroups/test-resources/providers/Microsoft.Network/publicIPAddresses/main",
+                "public_ip_prefix_id": "",
+                "subnet_id": "",
+                "zones": null
+              }
+            ],
+            "id": "/subscriptions/subscription_id/resourceGroups/test-resources/providers/Microsoft.Network/loadBalancers/main",
+            "location": "westeurope",
+            "name": "main",
+            "private_ip_address": "",
+            "private_ip_addresses": [],
+            "resource_group_name": "test-resources",
+            "sku": "Basic",
+            "tags": {
+              "env": "test",
+              "task": "test"
+            },
+            "timeouts": null
+          },
+          "sensitive_attributes": [],
+          "private":"private_key",
+          "dependencies": [
+            "azurerm_public_ip.main",
+            "azurerm_resource_group.main"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "azurerm_lb_backend_address_pool",
+      "name": "main",
+      "provider": "provider[\"registry.terraform.io/hashicorp/azurerm\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "backend_ip_configurations": [],
+            "id": "/subscriptions/subscription_id/resourceGroups/test-resources/providers/Microsoft.Network/loadBalancers/main/backendAddressPools/BackEndAddressPool",
+            "load_balancing_rules": [],
+            "loadbalancer_id": "/subscriptions/subscription_id/resourceGroups/test-resources/providers/Microsoft.Network/loadBalancers/main",
+            "name": "BackEndAddressPool",
+            "resource_group_name": "test-resources",
+            "timeouts": null
+          },
+          "sensitive_attributes": [],
+          "private":"private_key",
+          "dependencies": [
+            "azurerm_lb.main",
+            "azurerm_public_ip.main",
+            "azurerm_resource_group.main"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "azurerm_linux_virtual_machine",
+      "name": "main",
+      "provider": "provider[\"registry.terraform.io/hashicorp/azurerm\"]",
+      "instances": [
+        {
+          "index_key": 0,
+          "schema_version": 0,
+          "attributes": {
+            "additional_capabilities": [],
+            "admin_password": "adch34!3d$;1A",
+            "admin_ssh_key": [],
+            "admin_username": "a45ka",
+            "allow_extension_operations": true,
+            "availability_set_id": "/subscriptions/subscription_id/resourceGroups/test-resources/providers/Microsoft.Compute/availabilitySets/AVSET",
+            "boot_diagnostics": [],
+            "computer_name": "test-0-vm",
+            "custom_data": null,
+            "dedicated_host_id": "",
+            "disable_password_authentication": false,
+            "encryption_at_host_enabled": false,
+            "eviction_policy": "",
+            "extensions_time_budget": "PT1H30M",
+            "id": "/subscriptions/subscription_id/resourceGroups/test-resources/providers/Microsoft.Compute/virtualMachines/test-0-vm",
+            "identity": [],
+            "location": "westeurope",
+            "max_bid_price": -1,
+            "name": "test-0-vm",
+            "network_interface_ids": [
+              "/subscriptions/subscription_id/resourceGroups/test-resources/providers/Microsoft.Network/networkInterfaces/nic-0"
+            ],
+            "os_disk": [
+              {
+                "caching": "ReadWrite",
+                "diff_disk_settings": [],
+                "disk_encryption_set_id": "",
+                "disk_size_gb": 30,
+                "name": "test-0-vm_disk1_aa5d2c7b9ae945cabcae91c81d264a0f",
+                "storage_account_type": "Standard_LRS",
+                "write_accelerator_enabled": false
+              }
+            ],
+            "plan": [],
+            "priority": "Regular",
+            "private_ip_address": "10.0.1.4",
+            "private_ip_addresses": [
+              "10.0.1.4"
+            ],
+            "provision_vm_agent": true,
+            "proximity_placement_group_id": "",
+            "public_ip_address": "",
+            "public_ip_addresses": [],
+            "resource_group_name": "test-resources",
+            "secret": [],
+            "size": "Standard_A2",
+            "source_image_id": "/subscriptions/subscription_id/resourceGroups/packer-rg/providers/Microsoft.Compute/images/packerLinuxImage",
+            "source_image_reference": [],
+            "tags": {
+              "env": "test",
+              "task": "test"
+            },
+            "timeouts": null,
+            "virtual_machine_id": "a361647f-be21-48ba-81f7-6859e9d51797",
+            "virtual_machine_scale_set_id": "",
+            "zone": ""
+          },
+          "sensitive_attributes": [],
+          "private":"private_key",
+          "dependencies": [
+            "azurerm_availability_set.avset",
+            "azurerm_network_interface.main",
+            "azurerm_resource_group.main",
+            "azurerm_subnet.internal",
+            "azurerm_virtual_network.main",
+            "data.azurerm_image.packer-image"
+          ]
+        },
+        {
+          "index_key": 1,
+          "schema_version": 0,
+          "attributes": {
+            "additional_capabilities": [],
+            "admin_password": "adch34!3d$;1A",
+            "admin_ssh_key": [],
+            "admin_username": "a45ka",
+            "allow_extension_operations": true,
+            "availability_set_id": "/subscriptions/subscription_id/resourceGroups/test-resources/providers/Microsoft.Compute/availabilitySets/AVSET",
+            "boot_diagnostics": [],
+            "computer_name": "test-1-vm",
+            "custom_data": null,
+            "dedicated_host_id": "",
+            "disable_password_authentication": false,
+            "encryption_at_host_enabled": false,
+            "eviction_policy": "",
+            "extensions_time_budget": "PT1H30M",
+            "id": "/subscriptions/subscription_id/resourceGroups/test-resources/providers/Microsoft.Compute/virtualMachines/test-1-vm",
+            "identity": [],
+            "location": "westeurope",
+            "max_bid_price": -1,
+            "name": "test-1-vm",
+            "network_interface_ids": [
+              "/subscriptions/subscription_id/resourceGroups/test-resources/providers/Microsoft.Network/networkInterfaces/nic-1"
+            ],
+            "os_disk": [
+              {
+                "caching": "ReadWrite",
+                "diff_disk_settings": [],
+                "disk_encryption_set_id": "",
+                "disk_size_gb": 30,
+                "name": "test-1-vm_disk1_8340b92dc85e4e159a87a5e68fa731b3",
+                "storage_account_type": "Standard_LRS",
+                "write_accelerator_enabled": false
+              }
+            ],
+            "plan": [],
+            "priority": "Regular",
+            "private_ip_address": "10.0.1.5",
+            "private_ip_addresses": [
+              "10.0.1.5"
+            ],
+            "provision_vm_agent": true,
+            "proximity_placement_group_id": "",
+            "public_ip_address": "",
+            "public_ip_addresses": [],
+            "resource_group_name": "test-resources",
+            "secret": [],
+            "size": "Standard_A2",
+            "source_image_id": "/subscriptions/subscription_id/resourceGroups/packer-rg/providers/Microsoft.Compute/images/packerLinuxImage",
+            "source_image_reference": [],
+            "tags": {
+              "env": "test",
+              "task": "test"
+            },
+            "timeouts": null,
+            "virtual_machine_id": "9822dab7-1ece-4a58-a710-e0a687724792",
+            "virtual_machine_scale_set_id": "",
+            "zone": ""
+          },
+          "sensitive_attributes": [],
+          "private":"private_key",
+          "dependencies": [
+            "azurerm_availability_set.avset",
+            "azurerm_network_interface.main",
+            "azurerm_resource_group.main",
+            "azurerm_subnet.internal",
+            "azurerm_virtual_network.main",
+            "data.azurerm_image.packer-image"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "azurerm_network_interface",
+      "name": "main",
+      "provider": "provider[\"registry.terraform.io/hashicorp/azurerm\"]",
+      "instances": [
+        {
+          "index_key": 0,
+          "schema_version": 0,
+          "attributes": {
+            "applied_dns_servers": [],
+            "dns_servers": [],
+            "enable_accelerated_networking": false,
+            "enable_ip_forwarding": false,
+            "id": "/subscriptions/subscription_id/resourceGroups/test-resources/providers/Microsoft.Network/networkInterfaces/nic-0",
+            "internal_dns_name_label": "",
+            "internal_domain_name_suffix": "hvn0qmga1bnepppt23m54dpzla.ax.internal.cloudapp.net",
+            "ip_configuration": [
+              {
+                "name": "internal",
+                "primary": true,
+                "private_ip_address": "10.0.1.4",
+                "private_ip_address_allocation": "Dynamic",
+                "private_ip_address_version": "IPv4",
+                "public_ip_address_id": "",
+                "subnet_id": "/subscriptions/subscription_id/resourceGroups/test-resources/providers/Microsoft.Network/virtualNetworks/test-network/subnets/test-subnet"
+              }
+            ],
+            "location": "westeurope",
+            "mac_address": "",
+            "name": "nic-0",
+            "private_ip_address": "10.0.1.4",
+            "private_ip_addresses": [
+              "10.0.1.4"
+            ],
+            "resource_group_name": "test-resources",
+            "tags": {
+              "env": "test",
+              "task": "test"
+            },
+            "timeouts": null,
+            "virtual_machine_id": ""
+          },
+          "sensitive_attributes": [],
+          "private":"private_key",
+          "dependencies": [
+            "azurerm_resource_group.main",
+            "azurerm_subnet.internal",
+            "azurerm_virtual_network.main"
+          ]
+        },
+        {
+          "index_key": 1,
+          "schema_version": 0,
+          "attributes": {
+            "applied_dns_servers": [],
+            "dns_servers": [],
+            "enable_accelerated_networking": false,
+            "enable_ip_forwarding": false,
+            "id": "/subscriptions/subscription_id/resourceGroups/test-resources/providers/Microsoft.Network/networkInterfaces/nic-1",
+            "internal_dns_name_label": "",
+            "internal_domain_name_suffix": "hvn0qmga1bnepppt23m54dpzla.ax.internal.cloudapp.net",
+            "ip_configuration": [
+              {
+                "name": "internal",
+                "primary": true,
+                "private_ip_address": "10.0.1.5",
+                "private_ip_address_allocation": "Dynamic",
+                "private_ip_address_version": "IPv4",
+                "public_ip_address_id": "",
+                "subnet_id": "/subscriptions/subscription_id/resourceGroups/test-resources/providers/Microsoft.Network/virtualNetworks/test-network/subnets/test-subnet"
+              }
+            ],
+            "location": "westeurope",
+            "mac_address": "",
+            "name": "nic-1",
+            "private_ip_address": "10.0.1.5",
+            "private_ip_addresses": [
+              "10.0.1.5"
+            ],
+            "resource_group_name": "test-resources",
+            "tags": {
+              "env": "test",
+              "task": "test"
+            },
+            "timeouts": null,
+            "virtual_machine_id": ""
+          },
+          "sensitive_attributes": [],
+          "private":"private_key",
+          "dependencies": [
+            "azurerm_resource_group.main",
+            "azurerm_subnet.internal",
+            "azurerm_virtual_network.main"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "azurerm_network_interface_backend_address_pool_association",
+      "name": "main",
+      "provider": "provider[\"registry.terraform.io/hashicorp/azurerm\"]",
+      "instances": [
+        {
+          "index_key": 0,
+          "schema_version": 0,
+          "attributes": {
+            "backend_address_pool_id": "/subscriptions/subscription_id/resourceGroups/test-resources/providers/Microsoft.Network/loadBalancers/main/backendAddressPools/BackEndAddressPool",
+            "id": "/subscriptions/subscription_id/resourceGroups/test-resources/providers/Microsoft.Network/networkInterfaces/nic-0/ipConfigurations/internal|/subscriptions/subscription_id/resourceGroups/test-resources/providers/Microsoft.Network/loadBalancers/main/backendAddressPools/BackEndAddressPool",
+            "ip_configuration_name": "internal",
+            "network_interface_id": "/subscriptions/subscription_id/resourceGroups/test-resources/providers/Microsoft.Network/networkInterfaces/nic-0",
+            "timeouts": null
+          },
+          "sensitive_attributes": [],
+          "private":"private_key",
+          "dependencies": [
+            "azurerm_lb.main",
+            "azurerm_lb_backend_address_pool.main",
+            "azurerm_network_interface.main",
+            "azurerm_public_ip.main",
+            "azurerm_resource_group.main",
+            "azurerm_subnet.internal",
+            "azurerm_virtual_network.main"
+          ]
+        },
+        {
+          "index_key": 1,
+          "schema_version": 0,
+          "attributes": {
+            "backend_address_pool_id": "/subscriptions/subscription_id/resourceGroups/test-resources/providers/Microsoft.Network/loadBalancers/main/backendAddressPools/BackEndAddressPool",
+            "id": "/subscriptions/subscription_id/resourceGroups/test-resources/providers/Microsoft.Network/networkInterfaces/nic-1/ipConfigurations/internal|/subscriptions/subscription_id/resourceGroups/test-resources/providers/Microsoft.Network/loadBalancers/main/backendAddressPools/BackEndAddressPool",
+            "ip_configuration_name": "internal",
+            "network_interface_id": "/subscriptions/subscription_id/resourceGroups/test-resources/providers/Microsoft.Network/networkInterfaces/nic-1",
+            "timeouts": null
+          },
+          "sensitive_attributes": [],
+          "private":"private_key",
+          "dependencies": [
+            "azurerm_lb.main",
+            "azurerm_lb_backend_address_pool.main",
+            "azurerm_network_interface.main",
+            "azurerm_public_ip.main",
+            "azurerm_resource_group.main",
+            "azurerm_subnet.internal",
+            "azurerm_virtual_network.main"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "azurerm_network_interface_security_group_association",
+      "name": "nic_sec_assoc",
+      "provider": "provider[\"registry.terraform.io/hashicorp/azurerm\"]",
+      "instances": [
+        {
+          "index_key": 0,
+          "schema_version": 0,
+          "attributes": {
+            "id": "/subscriptions/subscription_id/resourceGroups/test-resources/providers/Microsoft.Network/networkInterfaces/nic-0|/subscriptions/subscription_id/resourceGroups/test-resources/providers/Microsoft.Network/networkSecurityGroups/test-nsg",
+            "network_interface_id": "/subscriptions/subscription_id/resourceGroups/test-resources/providers/Microsoft.Network/networkInterfaces/nic-0",
+            "network_security_group_id": "/subscriptions/subscription_id/resourceGroups/test-resources/providers/Microsoft.Network/networkSecurityGroups/test-nsg",
+            "timeouts": null
+          },
+          "sensitive_attributes": [],
+          "private":"private_key",
+          "dependencies": [
+            "azurerm_network_interface.main",
+            "azurerm_network_security_group.network_security_group",
+            "azurerm_resource_group.main",
+            "azurerm_subnet.internal",
+            "azurerm_virtual_network.main"
+          ]
+        },
+        {
+          "index_key": 1,
+          "schema_version": 0,
+          "attributes": {
+            "id": "/subscriptions/subscription_id/resourceGroups/test-resources/providers/Microsoft.Network/networkInterfaces/nic-1|/subscriptions/subscription_id/resourceGroups/test-resources/providers/Microsoft.Network/networkSecurityGroups/test-nsg",
+            "network_interface_id": "/subscriptions/subscription_id/resourceGroups/test-resources/providers/Microsoft.Network/networkInterfaces/nic-1",
+            "network_security_group_id": "/subscriptions/subscription_id/resourceGroups/test-resources/providers/Microsoft.Network/networkSecurityGroups/test-nsg",
+            "timeouts": null
+          },
+          "sensitive_attributes": [],
+          "private":"private_key",
+          "dependencies": [
+            "azurerm_network_interface.main",
+            "azurerm_network_security_group.network_security_group",
+            "azurerm_resource_group.main",
+            "azurerm_subnet.internal",
+            "azurerm_virtual_network.main"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "azurerm_network_security_group",
+      "name": "network_security_group",
+      "provider": "provider[\"registry.terraform.io/hashicorp/azurerm\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "id": "/subscriptions/subscription_id/resourceGroups/test-resources/providers/Microsoft.Network/networkSecurityGroups/test-nsg",
+            "location": "westeurope",
+            "name": "test-nsg",
+            "resource_group_name": "test-resources",
+            "security_rule": [],
+            "tags": {
+              "env": "test",
+              "task": "test"
+            },
+            "timeouts": null
+          },
+          "sensitive_attributes": [],
+          "private":"private_key",
+          "dependencies": [
+            "azurerm_resource_group.main"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "azurerm_network_security_rule",
+      "name": "allow_subnet_traffic",
+      "provider": "provider[\"registry.terraform.io/hashicorp/azurerm\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "access": "Allow",
+            "description": "",
+            "destination_address_prefix": "*",
+            "destination_address_prefixes": null,
+            "destination_application_security_group_ids": null,
+            "destination_port_range": "*",
+            "destination_port_ranges": null,
+            "direction": "Inbound",
+            "id": "/subscriptions/subscription_id/resourceGroups/test-resources/providers/Microsoft.Network/networkSecurityGroups/test-nsg/securityRules/test-allow_subnet_traffic",
+            "name": "test-allow_subnet_traffic",
+            "network_security_group_name": "test-nsg",
+            "priority": 101,
+            "protocol": "*",
+            "resource_group_name": "test-resources",
+            "source_address_prefix": "10.0.1.0/24",
+            "source_address_prefixes": null,
+            "source_application_security_group_ids": null,
+            "source_port_range": "*",
+            "source_port_ranges": null,
+            "timeouts": null
+          },
+          "sensitive_attributes": [],
+          "private":"private_key",
+          "dependencies": [
+            "azurerm_network_security_group.network_security_group",
+            "azurerm_resource_group.main"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "azurerm_network_security_rule",
+      "name": "deny_inbound_internet",
+      "provider": "provider[\"registry.terraform.io/hashicorp/azurerm\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "access": "Deny",
+            "description": "",
+            "destination_address_prefix": "VirtualNetwork",
+            "destination_address_prefixes": null,
+            "destination_application_security_group_ids": null,
+            "destination_port_range": "*",
+            "destination_port_ranges": null,
+            "direction": "Inbound",
+            "id": "/subscriptions/subscription_id/resourceGroups/test-resources/providers/Microsoft.Network/networkSecurityGroups/test-nsg/securityRules/test-deny_inbound_internet",
+            "name": "test-deny_inbound_internet",
+            "network_security_group_name": "test-nsg",
+            "priority": 102,
+            "protocol": "*",
+            "resource_group_name": "test-resources",
+            "source_address_prefix": "Internet",
+            "source_address_prefixes": null,
+            "source_application_security_group_ids": null,
+            "source_port_range": "*",
+            "source_port_ranges": null,
+            "timeouts": null
+          },
+          "sensitive_attributes": [],
+          "private":"private_key",
+          "dependencies": [
+            "azurerm_network_security_group.network_security_group",
+            "azurerm_resource_group.main"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "azurerm_public_ip",
+      "name": "main",
+      "provider": "provider[\"registry.terraform.io/hashicorp/azurerm\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "allocation_method": "Static",
+            "domain_name_label": null,
+            "fqdn": null,
+            "id": "/subscriptions/subscription_id/resourceGroups/test-resources/providers/Microsoft.Network/publicIPAddresses/main",
+            "idle_timeout_in_minutes": 4,
+            "ip_address": "13.73.182.124",
+            "ip_version": "IPv4",
+            "location": "westeurope",
+            "name": "main",
+            "public_ip_prefix_id": null,
+            "resource_group_name": "test-resources",
+            "reverse_fqdn": null,
+            "sku": "Basic",
+            "tags": {
+              "env": "test",
+              "task": "test"
+            },
+            "timeouts": null,
+            "zones": null
+          },
+          "sensitive_attributes": [],
+          "private":"private_key",
+          "dependencies": [
+            "azurerm_resource_group.main"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "azurerm_resource_group",
+      "name": "main",
+      "provider": "provider[\"registry.terraform.io/hashicorp/azurerm\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "id": "/subscriptions/subscription_id/resourceGroups/test-resources",
+            "location": "westeurope",
+            "name": "test-resources",
+            "tags": {
+              "env": "test",
+              "task": "test"
+            },
+            "timeouts": null
+          },
+          "sensitive_attributes": [],
+          "private":"private_key",
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "azurerm_subnet",
+      "name": "internal",
+      "provider": "provider[\"registry.terraform.io/hashicorp/azurerm\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "address_prefix": "10.0.1.0/24",
+            "address_prefixes": [
+              "10.0.1.0/24"
+            ],
+            "delegation": [],
+            "enforce_private_link_endpoint_network_policies": false,
+            "enforce_private_link_service_network_policies": false,
+            "id": "/subscriptions/subscription_id/resourceGroups/test-resources/providers/Microsoft.Network/virtualNetworks/test-network/subnets/test-subnet",
+            "name": "test-subnet",
+            "resource_group_name": "test-resources",
+            "service_endpoint_policy_ids": null,
+            "service_endpoints": null,
+            "timeouts": null,
+            "virtual_network_name": "test-network"
+          },
+          "sensitive_attributes": [],
+          "private":"private_key",
+          "dependencies": [
+            "azurerm_resource_group.main",
+            "azurerm_virtual_network.main"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "azurerm_virtual_network",
+      "name": "main",
+      "provider": "provider[\"registry.terraform.io/hashicorp/azurerm\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "address_space": [
+              "10.0.0.0/16"
+            ],
+            "bgp_community": "",
+            "ddos_protection_plan": [],
+            "dns_servers": null,
+            "guid": "30a85b3d-d8c0-475a-bdf3-e759ff0df958",
+            "id": "/subscriptions/subscription_id/resourceGroups/test-resources/providers/Microsoft.Network/virtualNetworks/test-network",
+            "location": "westeurope",
+            "name": "test-network",
+            "resource_group_name": "test-resources",
+            "subnet": [],
+            "tags": {
+              "env": "test",
+              "task": "test"
+            },
+            "timeouts": null,
+            "vm_protection_enabled": false
+          },
+          "sensitive_attributes": [],
+          "private":"private_key",
+          "dependencies": [
+            "azurerm_resource_group.main"
+          ]
+        }
+      ]
+    }
+  ]
+}
